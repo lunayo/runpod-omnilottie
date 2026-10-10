@@ -1,0 +1,3 @@
+[submodule "OmniLottie"]
+	path = OmniLottie
+	url = https://github.com/OpenVGLab/OmniLottie.git
