@@ -10,8 +10,13 @@ COPY OmniLottie/ /OmniLottie/
 COPY requirements.txt /requirements.txt
 RUN uv pip install --upgrade -r /requirements.txt -r /OmniLottie/requirements.txt --torch-backend cu128 --no-cache-dir --system
 
+# Bake model weights into the image (same patterns as handler.py)
+RUN hf download OmniLottie/OmniLottie --include "*.json" "*.safetensors" && \
+    hf download Qwen/Qwen2.5-VL-3B-Instruct --include "*.json" "*.txt"
+ENV HF_HUB_OFFLINE=1
+
 # Add files
 COPY handler.py /handler.py
 
 # Run the handler
-CMD ["python", "-u", "/handler.py", "--rp_serve_api", "--rp_api_host=0.0.0.0"]
+CMD ["python", "-u", "/handler.py"]
