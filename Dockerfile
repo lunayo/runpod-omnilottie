@@ -14,4 +14,4 @@ RUN uv pip install --upgrade -r /requirements.txt -r /OmniLottie/requirements.tx
 COPY handler.py /handler.py
 
 # Run the handler
-CMD ["python", "-u", "/handler.py"]
+CMD ["python", "-u", "/handler.py", "--rp_serve_api", "--rp_api_host=0.0.0.0"]
