@@ -45,3 +45,13 @@ curl -X POST https://api.runpod.ai/v2/<endpoint-id>/runsync \
 ```
 
 Response: `{"lottie": {...lottie json...}}` or `{"error": "..."}`.
+
+## Preview
+
+Save the `lottie` field to a file and drop it into [LottieFiles Preview](https://lottiefiles.com/preview):
+
+```bash
+curl -s -X POST http://localhost:8000/runsync \
+  -H "Content-Type: application/json" \
+  -d @test_input.json | jq '.output.lottie' > out.json
+```
