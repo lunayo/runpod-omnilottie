@@ -44,6 +44,4 @@ curl -X POST https://api.runpod.ai/v2/<endpoint-id>/runsync \
   -d '{"input": {"prompt": "a bouncing red ball"}}'
 ```
 
-Optional input: `max_tokens` (default 4096).
-
 Response: `{"lottie": {...lottie json...}}` or `{"error": "..."}`.
